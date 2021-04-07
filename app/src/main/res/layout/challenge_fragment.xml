@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Challenge">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:background="#b57edc"
+        android:layout_height="55dp"
+        android:text="Post Challenge"
+        android:textStyle="bold"
+        android:textSize="35dp"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Challenge Title"
+        android:textSize="25dp"
+        android:paddingLeft="10dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="25dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:inputType="text"
+        android:hint="Eg. I did 200 squats."
+        android:padding="10dp"
+        android:textColorHint="#000"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Challenge Description"
+        android:textSize="25dp"
+        android:paddingLeft="10dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="25dp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:inputType="textMultiLine"
+        android:hint="Say something..."
+        android:padding="10dp"
+        android:textColorHint="#000"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Upload Proof"
+        android:textSize="25dp"
+        android:paddingLeft="10dp"
+        android:textColor="@color/black"
+        android:layout_marginTop="25dp"/>
+
+    <Button
+        android:id="@+id/UploadBtn"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="15dp"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:layout_gravity="center"
+        android:background="@drawable/ic_add_a_photo_24"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Post"
+        android:textSize="25dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/rounded_button"/>
+
+
+</LinearLayout>
