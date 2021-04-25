@@ -1,6 +1,7 @@
 package com.example.fithub;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.like.LikeButton;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,9 +40,13 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void logout(View view) {
+        FirebaseAuth.getInstance().signOut();
+        startActivity(new Intent(getApplicationContext(),Login.class));
+        finish();
+    }
 
 
-
-        // Setting header
+    // Setting header
 
     }
