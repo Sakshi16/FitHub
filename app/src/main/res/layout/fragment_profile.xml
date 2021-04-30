@@ -3,20 +3,67 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.profile.ProfileFragment">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/text_notifications"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageView
+        android:id="@+id/ivProfilePicture"
+        android:layout_width="139dp"
+        android:layout_height="159dp"
+        android:layout_marginTop="28dp"
+        android:src="@drawable/ic_profile_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/ptBio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Enter Bio..."
+        app:layout_constraintEnd_toEndOf="@+id/ivProfilePicture"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="@+id/ivProfilePicture"
+        app:layout_constraintTop_toBottomOf="@+id/ivProfilePicture" />
+
+    <TextView
+        android:id="@+id/tvChallengeCompleted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Challenges completed"
+        app:layout_constraintEnd_toEndOf="@+id/ptPersonName"
+        app:layout_constraintStart_toStartOf="@+id/ptPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/ptPersonName" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="24dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintTop_toBottomOf="@+id/tvChallengeCompleted"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider"
+        tools:layout_editor_absoluteX="175dp" />
+
+    <EditText
+        android:id="@+id/ptPersonName"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="12dp"
+        android:ems="10"
+        android:hint="Display name"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/ptBio"
+        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintStart_toStartOf="@+id/ptBio"
+        app:layout_constraintTop_toBottomOf="@+id/ptBio" />
 </androidx.constraintlayout.widget.ConstraintLayout>
