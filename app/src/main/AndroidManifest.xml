@@ -15,17 +15,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/FitHubTheme">
-        <activity android:name=".Loading"></activity>
+        <activity android:name=".Loading" />
         <activity
             android:name=".SplashScreen"
-                android:theme="@style/splashScreen">
+            android:theme="@style/splashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"
-            android:theme="@style/FitHub"></activity>
+        <activity android:name=".Login"></activity>
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/FitHub" />
     </application>
+
 </manifest>
