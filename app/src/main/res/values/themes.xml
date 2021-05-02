@@ -22,5 +22,8 @@
     <style name="splashScreen" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowBackground">@drawable/splashscreen_bg</item>
     </style>
-
+    <!-- gradient background -->
+    <style name="gradientBG" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/splashscreen_bg</item>
+    </style>
 </resources>

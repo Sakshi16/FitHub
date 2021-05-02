@@ -26,6 +26,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Login"></activity>
+        <activity android:name=".Register"></activity>
         <activity
             android:name=".MainActivity"
             android:theme="@style/FitHub" />
