@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/email"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="75dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/logo_heart_blue" />
@@ -20,7 +20,7 @@
     <EditText
         android:id="@+id/email"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="45dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
@@ -30,21 +30,23 @@
         android:textColor="@color/black"
         android:textColorHint="@color/gray"
         android:textSize="24sp"
+
         android:paddingStart="12dp"
         android:paddingLeft="12dp"
         android:background="@drawable/custom_input"
         android:drawableStart="@drawable/custom_email_icon"
+        android:drawableLeft="@drawable/ic_email"
         android:drawablePadding="12dp"
+
         app:layout_constraintBottom_toTopOf="@+id/password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        android:drawableLeft="@drawable/ic_email" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/password"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="45dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="275dp"
@@ -54,23 +56,25 @@
         android:textColor="@color/black"
         android:textColorHint="@color/gray"
         android:textSize="24sp"
+
         android:paddingStart="12dp"
         android:paddingLeft="12dp"
         android:background="@drawable/custom_input"
         android:drawableStart="@drawable/custom_password_icon"
+        android:drawableLeft="@drawable/ic_password"
         android:drawablePadding="12dp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        android:drawableLeft="@drawable/ic_password" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/loginBtn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="16dp"
         android:text="Login"
         android:textColor="@color/white"
