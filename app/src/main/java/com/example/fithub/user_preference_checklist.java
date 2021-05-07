@@ -23,5 +23,6 @@ public class user_preference_checklist extends AppCompatActivity {
                 android.R.layout.simple_list_item_multiple_choice, arrayCatagories);
         listviewData.setAdapter(adapter);
 
+
     }
 }
