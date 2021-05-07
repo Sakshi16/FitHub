@@ -17,8 +17,9 @@
         <item name="colorPrimary">@color/logoColorBlue</item>
         <item name="colorPrimaryVariant">@color/lightBlue</item>
         <item name="colorPrimaryDark">@color/darkBlue</item>
+        <item name="colorOnSecondary">@color/white</item>
         <item name="colorAccent">@color/darkBlue</item> <!-- checklist boxes -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorAccent</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorOnSecondary</item>
     </style>
     <!-- splash screen background -->
     <style name="splashScreen" parent="Theme.AppCompat.Light.NoActionBar">
