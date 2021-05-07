@@ -15,8 +15,10 @@
     <!-- theme for no action bar on all pages except MainActvity -->
     <style name="FitHubTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/logoColorBlue</item>
+        <item name="colorPrimaryVariant">@color/lightBlue</item>
         <item name="colorPrimaryDark">@color/darkBlue</item>
-        <item name="colorAccent">@color/white</item>
+        <item name="colorAccent">@color/darkBlue</item> <!-- checklist boxes -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorAccent</item>
     </style>
     <!-- splash screen background -->
     <style name="splashScreen" parent="Theme.AppCompat.Light.NoActionBar">
