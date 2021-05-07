@@ -15,7 +15,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/FitHubTheme">
-        <activity android:name=".user_preference_checklist"></activity>
+        <activity android:name=".Register"/>
+        <activity android:name=".Login"/>
+        <activity android:name=".user_preference_checklist"/>
         <activity android:name=".Loading" />
         <activity
             android:name=".SplashScreen"
