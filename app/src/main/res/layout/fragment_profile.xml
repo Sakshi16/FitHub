@@ -47,6 +47,20 @@
         app:layout_constraintStart_toStartOf="@+id/ptPersonName"
         app:layout_constraintTop_toBottomOf="@+id/ptPersonName" />
 
+    <Button
+        android:id="@+id/logoutBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Logout"
+        app:layout_constraintEnd_toEndOf="@+id/ptBio"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="@+id/ptBio"
+        app:layout_constraintTop_toBottomOf="@+id/ptBio"
+        android:background="@drawable/rounded_button"
+        android:textColor="@color/white"
+        />
+
     <TextView
         android:id="@+id/tvChallengeCompleted"
         android:layout_width="wrap_content"
@@ -55,9 +69,9 @@
         android:text="Challenges completed"
         android:textSize="20sp"
         android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="@+id/ptBio"
-        app:layout_constraintStart_toStartOf="@+id/ptBio"
-        app:layout_constraintTop_toBottomOf="@+id/ptBio" />
+        app:layout_constraintEnd_toEndOf="@+id/logoutBtn"
+        app:layout_constraintStart_toStartOf="@+id/logoutBtn"
+        app:layout_constraintTop_toBottomOf="@+id/logoutBtn" />
 
     <View
         android:id="@+id/divider"
