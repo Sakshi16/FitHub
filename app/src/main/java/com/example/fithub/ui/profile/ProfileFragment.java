@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,18 +17,54 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.fithub.Login;
 import com.example.fithub.R;
+import com.example.fithub.User;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class ProfileFragment extends Fragment {
 
     FirebaseAuth firebaseAuth;
     private ProfileViewModel profileViewModel;
+    EditText ptPersonName, ptBio;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         profileViewModel =
                 new ViewModelProvider(this).get(ProfileViewModel.class);
         View root = inflater.inflate(R.layout.fragment_profile, container, false);
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        // Write a message to the database
+        //This is where user info (username, email..) is added to backend
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference reference = database.getReference("message");
+        reference.setValue("Hello, World!");
+
+        String userID = user.getUid();
+        final EditText ptPersonName = root.findViewById(R.id.ptPersonName);
+
+        reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                User userProfile = snapshot.getValue(User.class);
+                if (userProfile != null){
+                    String username = userProfile.username;
+                    String name = userProfile.name;
+                    String email = userProfile.email;
+                    ptPersonName.setText("Welcome" + username + "!");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            //    Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_LONG).show();
+            }
+        });
 
         View logout = root.findViewById(R.id.logoutBtn);
 
@@ -49,8 +87,4 @@ public class ProfileFragment extends Fragment {
         return root;
     }
 
-    public void logout(View view) {
-        FirebaseAuth.getInstance().signOut();
-        startActivity(new Intent(ProfileFragment.this.getActivity(), Login.class));
-    }
 }
