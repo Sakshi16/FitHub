@@ -25,7 +25,6 @@ public class profileImage extends Activity {
     private FirebaseStorage storage;
     private StorageReference storageReference;
     public Uri imageUri;
-    private Button logout;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,16 +37,6 @@ public class profileImage extends Activity {
         storageReference = storage.getReference();
 
         profilePic.setOnClickListener(v -> choosePicture());
-
-        logout = findViewById(R.id.logoutBtn);
-        logout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(getApplicationContext(),Login.class));
-                finish();
-            }
-        });
 
     }
 
