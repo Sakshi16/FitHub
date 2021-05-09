@@ -61,14 +61,6 @@ public class Login extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                            if (user.isEmailVerified()) {
-                                Toast.makeText(Login.this, "Logged in successfully.", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                            }else{
-                                user.sendEmailVerification();
-                                Toast.makeText(Login.this, "Check your email to verify your account!", Toast.LENGTH_LONG).show();
-                            }
-
                         }
                         else{
                             Toast.makeText(Login.this, "Error!" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();

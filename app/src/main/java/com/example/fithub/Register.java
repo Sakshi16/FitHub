@@ -13,6 +13,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
 public class Register extends AppCompatActivity {
@@ -71,6 +72,14 @@ public class Register extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
+                            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                            if (user.isEmailVerified()) {
+                                Toast.makeText(Register.this, "Logged in successfully.", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                            }else{
+                                user.sendEmailVerification();
+                                Toast.makeText(Register.this, "Check your email to verify your account!", Toast.LENGTH_LONG).show();
+                            }
                             Toast.makeText(Register.this, "User Created.", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(),user_preference_checklist.class));
                         }
