@@ -30,7 +30,7 @@ public class ProfileFragment extends Fragment {
 
     FirebaseAuth firebaseAuth;
     private ProfileViewModel profileViewModel;
-    EditText ptPersonName, ptBio;
+    //EditText ptPersonName, ptBio;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {

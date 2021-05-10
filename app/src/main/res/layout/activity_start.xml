@@ -27,7 +27,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/white_button"
-        android:drawableStart="@drawable/common_google_signin_btn_icon_dark_normal"
+        android:drawableStart="@drawable/googleg_standard_color_18"
         android:drawableLeft="@drawable/googleg_standard_color_18"
         android:drawablePadding="12dp"
 
@@ -53,8 +53,8 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/white_button"
-        android:drawableStart="@drawable/googleg_disabled_color_18"
-        android:drawableLeft="@drawable/googleg_disabled_color_18"
+        android:drawableStart="@drawable/ic_github"
+        android:drawableLeft="@drawable/ic_github"
         android:drawablePadding="12dp"
 
         android:ems="10"
