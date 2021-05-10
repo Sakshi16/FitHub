@@ -6,23 +6,27 @@
         <item name="colorPrimaryVariant">@color/darkBlue</item>
         <item name="colorOnPrimary">@color/lightBlue</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal</item>
+        <item name="colorSecondary">@color/white</item>
         <item name="colorSecondaryVariant">@color/gray</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorSecondaryVariant</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorSecondary</item>
     </style>
     <!-- theme for no action bar on all pages except MainActvity -->
     <style name="FitHubTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/logoColorBlue</item>
         <item name="colorPrimaryVariant">@color/lightBlue</item>
         <item name="colorPrimaryDark">@color/darkBlue</item>
+        <item name="colorOnSecondary">@color/white</item>
         <item name="colorAccent">@color/darkBlue</item> <!-- checklist boxes -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorAccent</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorOnSecondary</item>
     </style>
     <!-- splash screen background -->
     <style name="splashScreen" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowBackground">@drawable/splashscreen_bg</item>
     </style>
-
+    <!-- gradient background -->
+    <style name="gradientBG" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowBackground">@drawable/splashscreen_bg</item>
+    </style>
 </resources>
