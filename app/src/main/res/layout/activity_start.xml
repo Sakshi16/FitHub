@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_bg"
+    tools:context=".Start">
+
+    <ImageView
+        android:id="@+id/logoHeart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="110dp"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/google_signIn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_heart_blue" />
+
+    <Button
+        android:id="@+id/google_signIn"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/white_button"
+        android:drawableStart="@drawable/googleg_standard_color_18"
+        android:drawableLeft="@drawable/googleg_standard_color_18"
+        android:drawablePadding="12dp"
+
+        android:ems="10"
+        android:paddingStart="12dp"
+        android:paddingLeft="12dp"
+        android:text="Sign In with Google"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/github_signIn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logoHeart" />
+
+    <Button
+        android:id="@+id/github_signIn"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/white_button"
+        android:drawableStart="@drawable/ic_github"
+        android:drawableLeft="@drawable/ic_github"
+        android:drawablePadding="12dp"
+
+        android:ems="10"
+        android:paddingStart="12dp"
+        android:paddingLeft="12dp"
+        android:text="Sign In with GitHub"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/email_signIn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/google_signIn" />
+
+    <Button
+        android:id="@+id/email_signIn"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/white_button"
+        android:drawableStart="@drawable/custom_email_icon"
+        android:drawableLeft="@drawable/ic_email"
+        android:drawablePadding="12dp"
+
+        android:ems="10"
+        android:paddingStart="12dp"
+        android:paddingLeft="12dp"
+        android:text="Sign In with Email"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/reg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/github_signIn"
+        />
+
+    <TextView
+        android:id="@+id/reg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="150dp"
+        android:text="Don't have an account? Register"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginBtn"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
