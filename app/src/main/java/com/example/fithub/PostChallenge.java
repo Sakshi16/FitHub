@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.provider.MediaStore;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -68,16 +69,11 @@ private int REQUEST_CODE = 2;
         imageView = (ImageView) root.findViewById(R.id.imgView);
         EditText challenge_title = (EditText) root.findViewById(R.id.challengeTitle);
         EditText challenge_description = (EditText) root.findViewById(R.id.challengeDescription);
-        String challengeTitle = challenge_title.getText().toString();
-        String challengeDescription = challenge_description.getText().toString();
-        String image = "";
-        String dateCompleted = Calendar.getInstance().getTime().toString();
 
         //Add choices to user interests
         FirebaseUser fUser = FirebaseAuth.getInstance().getCurrentUser();
         String userID = fUser.getUid();
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        Challenge challenge = new Challenge(userID, challengeTitle, challengeDescription, image, dateCompleted);
 
 
         btnChoose.setOnClickListener(new View.OnClickListener() {
@@ -90,6 +86,21 @@ private int REQUEST_CODE = 2;
         btnUpload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String challengeTitle = challenge_title.getText().toString();
+                String challengeDescription = challenge_description.getText().toString();
+                String image = "";
+                String dateCompleted = Calendar.getInstance().getTime().toString();
+
+                //Error handling
+                if(TextUtils.isEmpty(challengeTitle)) {
+                    challenge_title.setError("Title is Required.");
+                    return;
+                }
+                if(TextUtils.isEmpty(challengeDescription)) {
+                    challenge_description.setError("Description is Required.");
+                    return;
+                }
+                Challenge challenge = new Challenge(userID, challengeTitle, challengeDescription, image, dateCompleted);
                 database.getReference("Challenge")
                         .child(dateCompleted)
                         .setValue(challenge).addOnCompleteListener(new OnCompleteListener<Void>() {
