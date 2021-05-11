@@ -5,7 +5,7 @@
     android:id="@+id/challenge"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Challenge">
+    tools:context=".PostChallenge">
 
     <TextView
         android:layout_width="match_parent"
@@ -54,6 +54,7 @@
         android:inputType="textMultiLine"
         android:hint="Say something..."
         android:padding="10dp"
+        android:id="@+id/challengeDescription"
         android:textColorHint="#000"/>
 
     <TextView

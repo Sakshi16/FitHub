@@ -15,13 +15,12 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 
 public class Register extends AppCompatActivity {
 
-    EditText mName, mEmail, mUsername, mPassword, mConfirmPassword;
+    EditText mFullname, mEmail, mUsername, mPassword, mConfirmPassword;
     Button mRegisterBtn;
     TextView mLoginBtn;
 
@@ -33,7 +32,7 @@ public class Register extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_register);
 
-        mName               = findViewById(R.id.name);
+        mFullname           = findViewById(R.id.name);
         mEmail              = findViewById(R.id.email);
         mUsername           = findViewById(R.id.username);
         mPassword           = findViewById(R.id.password);
@@ -52,12 +51,23 @@ public class Register extends AppCompatActivity {
         mRegisterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String name = mName.getText().toString().trim();
+                String fullname = mFullname.getText().toString().trim();
                 String username = mUsername.getText().toString().trim();
                 String email = mEmail.getText().toString().trim();
                 String password = mPassword.getText().toString().trim();
+                String confirmPassword = mConfirmPassword.getText().toString().trim();
 
                 //Error handling copied in Login
+                if(TextUtils.isEmpty(fullname)) {
+                    mFullname.setError("Name is Required.");
+                    return;
+                }
+
+                if(TextUtils.isEmpty(username)) {
+                    mUsername.setError("Username is Required.");
+                    return;
+                }
+
                 if(TextUtils.isEmpty(email)) {
                     mEmail.setError("Email is Required.");
                     return;
@@ -73,13 +83,18 @@ public class Register extends AppCompatActivity {
                     return;
                 }
 
+                if(!confirmPassword.matches(password)) {
+                    mConfirmPassword.setError("Passwords do not match.");
+                    return;
+                }
+
                 //register the user in firebase
                 fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             FirebaseUser fUser = FirebaseAuth.getInstance().getCurrentUser();
-                            User user = new User(username, name, email);
+                            User user = new User(username, fullname, email, null, "Bio");
                                 FirebaseDatabase.getInstance().getReference("Users")
                                     .child(fUser.getUid())
                                     .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {

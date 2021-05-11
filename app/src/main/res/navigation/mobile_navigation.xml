@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/navigation_challenge"
-        android:name="com.example.fithub.Challenge"
+        android:name="com.example.fithub.PostChallenge"
         android:label="Challenge"
         tools:layout="@layout/challenge_fragment" />
 
