@@ -17,7 +17,11 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.fithub.Login;
 import com.example.fithub.R;
+import com.example.fithub.Register;
 import com.example.fithub.User;
+import com.example.fithub.user_preference_checklist;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -38,15 +42,15 @@ public class ProfileFragment extends Fragment {
                 new ViewModelProvider(this).get(ProfileViewModel.class);
         View root = inflater.inflate(R.layout.fragment_profile, container, false);
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        //IGNORE THIS
+        FirebaseUser fUser = FirebaseAuth.getInstance().getCurrentUser();
         // Write a message to the database
-        //This is where user info (username, email..) is added to backend
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference reference = database.getReference("message");
-        reference.setValue("Hello, World!");
+        DatabaseReference reference = database.getReference("Users");
 
-        String userID = user.getUid();
+        String userID = fUser.getUid();
         final EditText ptPersonName = root.findViewById(R.id.ptPersonName);
+        final EditText ptBio = root.findViewById(R.id.ptBio);
 
         reference.child(userID).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -54,9 +58,9 @@ public class ProfileFragment extends Fragment {
                 User userProfile = snapshot.getValue(User.class);
                 if (userProfile != null){
                     String username = userProfile.username;
-                    String name = userProfile.name;
-                    String email = userProfile.email;
-                    ptPersonName.setText("Welcome" + username + "!");
+                    String bio = userProfile.bio;
+                    ptPersonName.setText(username);
+                    ptBio.setText(bio);
                 }
             }
 
