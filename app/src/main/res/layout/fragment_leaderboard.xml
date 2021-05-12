@@ -5,11 +5,30 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/leaderboard"
+    android:background="@drawable/gradient_bg2"
     tools:context=".ui.leaderboard.leaderboard">
+
+    <TextView
+        android:id="@+id/lbTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Leaderboard"
+        android:textStyle="bold"
+        android:textSize="47dp"
+        android:textColor="@color/white"
+        android:shadowColor="#8C8C8C"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="10"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:paddingTop="20dp"
+        android:paddingHorizontal="25dp" />
 
     <ListView
         android:id="@android:id/list"
+        android:layout_below="@id/lbTitle"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
 </RelativeLayout>
