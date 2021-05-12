@@ -18,15 +18,15 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fithub.Login;
 import com.example.fithub.R;
-import com.example.fithub.Register;
 import com.example.fithub.User;
-import com.example.fithub.user_preference_checklist;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.android.material.snackbar.Snackbar;
+import com.example.fithub.model;
+import com.example.fithub.myAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -50,6 +50,10 @@ public class ProfileFragment extends Fragment {
     private FirebaseStorage storage;
     private StorageReference storageReference;
     public Uri imageUri;
+
+    //profileFeed
+    RecyclerView recyclerView;
+    myAdapter adapter;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -111,9 +115,34 @@ public class ProfileFragment extends Fragment {
                 textView.setText(s);
             }
         });
+
+        //profileFeed
+        recyclerView = (RecyclerView) root.findViewById(R.id.profileFeed);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        FirebaseRecyclerOptions<model> options =
+                new FirebaseRecyclerOptions.Builder<model>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Challenge"), model.class)
+                        .build();
+        adapter=new myAdapter(options);
+        recyclerView.setAdapter(adapter);
         return root;
     }
 
+    //profileFeed
+    @Override
+    public void onStart() {
+        super.onStart();
+        adapter.startListening();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        adapter.stopListening();
+    }
+
+    //allows user to select image
     private void choosePicture() {
         Intent intent = new Intent();
         intent.setType("image/*");
@@ -121,6 +150,7 @@ public class ProfileFragment extends Fragment {
         startActivityForResult(intent, 1);
     }
 
+    //verification to select image
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -131,6 +161,7 @@ public class ProfileFragment extends Fragment {
         }
     }
 
+    //show progress of user uploading image
     private void uploadPicture() {
 
         final ProgressDialog pd = new ProgressDialog(getContext());
@@ -154,5 +185,7 @@ public class ProfileFragment extends Fragment {
                     pd.setMessage("Progress: " + (int) progressPercent + "%");
                 });
     }
+
+
 
 }
